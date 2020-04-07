@@ -27,7 +27,7 @@
       type="button"
       tabindex="-1"
       class="datepicker-button validate flex align-center justify-content-center"
-      @click.stop="$emit('validate')"
+      @click.prevent="$emit('validate')"
     >
       <span
         class="datepicker-button-effect"

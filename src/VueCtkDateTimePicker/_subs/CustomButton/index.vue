@@ -10,7 +10,7 @@
     }"
     tabindex="-1"
     type="button"
-    @click.stop="$emit('click')"
+    @click.prevent="$emit('click')"
     @focus="$emit('focus')"
     @blur="$emit('blur')"
     @mouseover="$emit('mouseover')"

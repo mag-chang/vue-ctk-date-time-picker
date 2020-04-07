@@ -7,7 +7,7 @@
       :class="{'inline': inline, 'is-dark': dark, 'visible': visible}"
       :style="responsivePosition"
       class="datetimepicker flex"
-      @click.stop
+      @click.prevent.stop
     >
       <div
         :style="[responsivePosition, width]"
@@ -22,6 +22,7 @@
           :only-time="onlyTime"
           :format="format"
           :time-format="timeFormat"
+          :locale="locale"
           :transition-name="transitionName"
           :no-time="onlyDate"
           :dark="dark"
@@ -52,6 +53,7 @@
             :custom-shortcuts="customShortcuts"
             :no-keyboard="noKeyboard"
             :locale="locale"
+            :reverse-y-m-order="reverseYMOrder"
             @change-month="changeMonth"
             @change-year-month="changeYearMonth"
             @close="$emit('close')"
@@ -141,7 +143,8 @@
       customShortcuts: { type: Array, default: null },
       noKeyboard: { type: Boolean, default: false },
       right: { type: Boolean, default: false },
-      behaviour: { type: Object, default: () => ({}) }
+      behaviour: { type: Object, default: () => ({}) },
+      reverseYMOrder: { type: Boolean, default: false }
     },
     data () {
       return {

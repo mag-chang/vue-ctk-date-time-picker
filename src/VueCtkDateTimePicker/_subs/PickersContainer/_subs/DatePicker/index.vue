@@ -33,7 +33,8 @@
         >
           <TransitionGroup
             :name="transitionLabelName"
-            class="h-100 flex align-center flex-1 flex justify-content-right"
+            class="h-100 flex align-center flex-1 flex"
+            :class="reverseYMOrder ? 'justify-content-left' : 'justify-content-right'"
           >
             <CustomButton
               v-for="m in [month]"
@@ -49,6 +50,7 @@
           <TransitionGroup
             :name="transitionLabelName"
             class="h-100 flex align-center flex-1 flex"
+            :class="reverseYMOrder ? 'justify-content-right' : 'justify-content-left'"
           >
             <CustomButton
               v-for="y in [year]"
@@ -185,7 +187,8 @@
       noShortcuts: { type: Boolean, default: null },
       firstDayOfWeek: { type: Number, default: null },
       customShortcuts: { type: Array, default: () => ([]) },
-      visible: { type: Boolean, default: null }
+      visible: { type: Boolean, default: null },
+      reverseYMOrder: { type: Boolean, default: false }
     },
     data () {
       return {

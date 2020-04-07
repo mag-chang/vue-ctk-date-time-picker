@@ -31,7 +31,7 @@
     <div
       v-if="hasPickerOpen && overlay"
       class="time-picker-overlay"
-      @click.stop="closePicker"
+      @click.prevent.stop="closePicker"
     />
 
     <!-- Date picker container -->
@@ -71,6 +71,7 @@
       :no-keyboard="noKeyboard"
       :right="right"
       :behaviour="_behaviour"
+      :reverse-y-m-order="reverseYMOrder"
       @validate="validate"
       @close="closePicker"
     />
